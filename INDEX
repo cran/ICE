@@ -1,3 +1,13 @@
+bickde                  Bandwidth choice for Interval-Censored Kernel
+                        Density Estimation
 ICGG                    Gentleman and Geyer's Data
 ICHemophiliac           Hemophiliac Data Set
 ickde                   Interval-Censored Kernel Density Estimation
+icllde                  Interval-Censored Local Linear Density
+                        Estimation
+iclocpoly               Interval-Censored Local Polynomial Regression
+                        Estimation
+inmost                  Innermost Intervals for Interval-Censored Data
+likelihoodcv            Log Cross-Validated Likelihood
+motor.IC                Motorcycle Data with artificial
+                        interval-censored responses

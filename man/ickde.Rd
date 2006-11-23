@@ -5,10 +5,12 @@
 Iterated conditional expectation kernel density estimation 
 using a local constant.  The bandwidth is assumed fixed. (See
 the example for a way to get a quick ballpark estimate of the bandwidth.)
-The gaussian kernel is used.
+The gaussian, epanechnikov and biweight kernels can be used. Note
+that the bandwidth estimate would have to be adjusted before using
+with epanechnikov or biweight. 
 }
 \usage{
-ickde(I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000)
+ickde(I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000,kernel="gaussian")
 }
 \arguments{
   \item{I}{A matrix with two columns, consisting of left and right
@@ -23,6 +25,8 @@ the density is to be estimated}
   \item{xm}{The right-most grid point (optional)}
   \item{right.limit}{For right-censored data, the value to be
 used as an artificial right endpoint for the intervals}
+  \item{kernel}{character argument indicated choice of kernel; current
+choices are "gaussian", "epanechnikov", "biweight"}
 }
 \value{An object of class \code{IC}
 }
