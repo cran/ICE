@@ -1,7 +1,8 @@
 \name{iclocpoly}
 \alias{iclocpoly}
 \title{Interval-Censored Local Polynomial Regression Estimation}
-\description{
+\description{Local polynomial regression estimation for
+interval-censored data.
 }
 \usage{
 iclocpoly(x, y=NULL, y.IC, degree=0, h, niter=10, kernel="normal", gridsize=401)

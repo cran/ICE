@@ -28,7 +28,7 @@ function (x, y = NULL, y.IC, degree=0, h, niter = 10, kernel="normal", gridsize=
         term2 <- (phi.Rp * R - phi.Lp * L)/den
         sigmahat2 <- sigma^2 * (1 - term1^2 - term2)
         muhat <- c(y, muhat)
-        sigma2 <- var(muhat) + mean(sigmahat2)
+        sigma2 <- var(term1)*sigma^2 + mean(sigmahat2)
         if (m > 0) sigma2 <- sigma2  + var((y-y.fitted[1:m]))
         sigma <- sqrt(sigma2)
         y.locpoly <- locpoly(x, muhat, degree=degree, bandwidth=h, kernel=kernel, gridsize=gridsize)

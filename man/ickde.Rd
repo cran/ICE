@@ -10,7 +10,7 @@ that the bandwidth estimate would have to be adjusted before using
 with epanechnikov or biweight. 
 }
 \usage{
-ickde(I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000,kernel="gaussian")
+ickde(I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000,kernel="gaussian", old=TRUE)
 }
 \arguments{
   \item{I}{A matrix with two columns, consisting of left and right
@@ -27,6 +27,9 @@ the density is to be estimated}
 used as an artificial right endpoint for the intervals}
   \item{kernel}{character argument indicated choice of kernel; current
 choices are "gaussian", "epanechnikov", "biweight"}
+  \item{old}{logical value, indicating whether denominators in
+conditional expectation calculation  
+should use the previous value of the density estimate.}
 }
 \value{An object of class \code{IC}
 }

@@ -37,11 +37,13 @@ c biweight kernel
       return
       end
 
-      subroutine ickde(n,left,right,numgrid,gridpts,f0,h,niter,f1,ker)
+      subroutine ickde(n,left,right,numgrid,gridpts,f0,h,niter,f1,
+     &ker,old)
 
       implicit NONE
-      INTEGER i, ii, j, k, m, n, numgrid, niter, ker
-      DOUBLE PRECISION left(n), right(n), gridpts(numgrid), f0(numgrid),
+      INTEGER i, ii, j, k, m, n, numgrid, niter, ker, old
+      DOUBLE PRECISION left(n), right(n), gridpts(numgrid), 
+     & f0(numgrid),
      & f1(numgrid), fnew, denom, h, meshwidth, numer, z
 c function calls:
       DOUBLE PRECISION kernel
@@ -61,8 +63,12 @@ c function calls:
            do 60 k=1,m
             if ((left(j) .lt. gridpts(k)) .AND.
      &       (right(j) .gt. gridpts(k))) then
-              denom = denom + f0(k)
               z = (gridpts(i)-gridpts(k))/h
+              if (old .eq. 1) then 
+                  denom = denom + f0(k)
+              else
+                  denom = denom + kernel(z, ker)/h
+              endif
               numer = numer + kernel(z, ker)*f0(k)/h
             end if
 60         continue
@@ -86,14 +92,16 @@ c function calls:
       return
       end
 
-      subroutine icllde(n,left,right,numgrid,gridpts,f0,h,niter,f,ker)
+      subroutine icllde(n,left,right,numgrid,gridpts,f0,h,niter,
+     &f,ker)
 
       implicit NONE
-      INTEGER              i, ii, j, k, m, n, numgrid, niter, ker
+      INTEGER              i, ii, j, k, m, n, numgrid, 
+     &                     niter, ker
       DOUBLE PRECISION     left(n), right(n), gridpts(numgrid), 
-     &                     f0(numgrid), f(numgrid), fder, fnew, fdenom, 
-     &h, meshwidth, fnumer, kf,
-     & fdernumer, z, fsum
+     &                     f0(numgrid), f(numgrid), fder, fnew, 
+     &                     fdenom, h, meshwidth, fnumer, kf,
+     &                     fdernumer, z, fsum
       
       DOUBLE PRECISION kernel
 

@@ -1,6 +1,6 @@
 Package: ICE
 Title: Iterated Conditional Expectation
-Version: 0.61
+Version: 0.66
 Author: W. John Braun
 Description: Kernel Estimators for Interval-Censored Data
 LazyLoad: true
@@ -8,7 +8,7 @@ LazyData: true
 Depends: R (>= 2.0.1), KernSmooth
 ZipData: no
 Maintainer: <braun@stats.uwo.ca>
-License: GPL
-Packaged: Thu Nov 23 00:25:52 2006; braun
+License: GPL (>= 2)
+Packaged: 2012-03-20 11:49:54 UTC; braun
 Repository: CRAN
-Date/Publication: 2006-11-23 10:57:00
+Date/Publication: 2012-03-20 14:36:13

@@ -1,5 +1,6 @@
 "ickde" <-
-function (I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000, kernel="gaussian") 
+function (I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000, 
+kernel="gaussian", old=TRUE) 
 {
     if (missing(x1)) 
         x1 <- min(I) - 4 * h
@@ -23,9 +24,10 @@ function (I, h, f, m, n.iterations = 10, x1, xm, right.limit = 10000, kernel="ga
     ker <- which(c("gaussian", "epanechnikov", "biweight") %in% kernel)
     z <- .Fortran("ickde", as.integer(n), as.double(left), as.double(right), 
         as.integer(numgrid), as.double(gridpts), as.double(f0), 
-        as.double(h), as.integer(niter), as.double(f1), as.integer(ker), PACKAGE = "ICE")
+        as.double(h), as.integer(niter), as.double(f1), as.integer(ker), 
+        as.integer(old), PACKAGE = "ICE")
     names(z) <- c("n", "left", "right", "numgrid", "x", "f0", 
-        "h", "niter", "y", "ker")
+        "h", "niter", "y", "ker", "old")
     z.out <- list(x = z$x, y = z$y)
     class(z.out) <- "IC"
     z.out

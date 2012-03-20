@@ -2,14 +2,11 @@
 \alias{ICHemophiliac}
 \docType{data}
 \title{Hemophiliac Data Set}
-\description{
+\description{Time (interval-censored) to onset of HIV infection.
 }
 \usage{data(ICHemophiliac)}
-\format{
-  The format is:
- num [1:96, 1:2] 10 12 9 15 5 1 15 1 9 11 ...
- - attr(*, "dimnames")=List of 2
-  ..$ : NULL
-  ..$ : chr [1:2] "left" "right"
+\format{a matrix with 2 columns.  The first column contains
+the left endpoints of the intervals, and the second column
+contains the right endpoints.
 }
 \keyword{datasets}
