@@ -37,7 +37,6 @@ should use the previous value of the density estimate.}
 Local likelihood density estimation for interval censored
 data.  Canadian Journal of Statistics 33: 39-60.}
 \author{W.J. Braun}
-\seealso{\code{\link{dpik}}}
 \examples{
  tmp <- apply(ICHemophiliac, 1, mean)
  h <- try(dpik(tmp), silent=T) # dpik() will work if KernSmooth is loaded

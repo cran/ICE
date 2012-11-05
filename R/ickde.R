@@ -32,8 +32,8 @@ kernel="gaussian", old=TRUE)
     class(z.out) <- "IC"
     z.out
 }
-.First.lib <- function(lib,pkg) {
- library.dynam("ICE",pkg,lib)
-}
+#.First.lib <- function(lib,pkg) {
+# library.dynam("ICE",pkg,lib)
+#}
 
 
